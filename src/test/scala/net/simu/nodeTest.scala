@@ -14,47 +14,47 @@ import org.junit.Assert._
 
 class nodeTest {
 
-  val node1 = new Node(1)
-  val node2 = new Node(2)
+	val node1 = new Node(1)
+	val node2 = new Node(2)
 
-  @Before
-  def setUp: Unit = {
-  }
+	@Before
+	def setUp: Unit = {
+	}
 
-  @After
-  def tearDown: Unit = {
-  }
+	@After
+	def tearDown: Unit = {
+	}
 
-  @Test
-  def idTest = {
-    assertEquals(BigInt(1), node1.get_id)
-    assertEquals(BigInt(2), node2.get_id)
-  }
+	@Test
+	def idTest = {
+		assertEquals(BigInt(1), node1.get_id)
+		assertEquals(BigInt(2), node2.get_id)
+	}
 
-  @Test
-  def activeTest = {
-    assertEquals(node1.is_active, true)
-  }
+	@Test
+	def activeTest = {
+		assertEquals(node1.is_active, true)
+	}
 
-  @Test
-  def activateTest = {
-    node1.activate(false)
-    assertEquals(node1.is_active, false)
-  }
+	@Test
+	def activateTest = {
+		node1.activate(false)
+		assertEquals(node1.is_active, false)
+	}
 
-  @Test
-  def nodeCreateTest = {
-    val a = new Node(1)
-    val b = new Node(1)
-    assertEquals(true, a.equals(b))
-    assertEquals(true, a == b)
-  }
+	@Test
+	def nodeCreateTest = {
+		val a = new Node(1)
+		val b = new Node(1)
+		assertEquals(true, a.equals(b))
+		assertEquals(true, a == b)
+	}
 
-  @Test
-  def nodeXorTest = {
-    // 1 xor 2 => 3
-    assertEquals(BigInt(3), node1 ^ node2)
-  }
+	@Test
+	def nodeXorTest = {
+		// 1 xor 2 => 3
+		assertEquals(BigInt(3), node1 ^ node2)
+	}
 
 
 }
