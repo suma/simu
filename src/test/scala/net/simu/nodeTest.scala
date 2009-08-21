@@ -14,8 +14,8 @@ import org.junit.Assert._
 
 class nodeTest {
 
-	val node1 = new Node(1)
-	val node2 = new Node(2)
+  val node1 = new Node(1)
+  val node2 = new Node(2)
 
   @Before
   def setUp: Unit = {
