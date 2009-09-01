@@ -6,12 +6,12 @@ import scala._
 class Node(i: BigInt) { //extends Ordered[Node] {
 
 	private val id: BigInt = i
-	private var network: Simu = null
+	private var network: Network = null
 	private var active: Boolean = true
 
 	def get_id = id
-	def set_network(simu: Simu): Unit = {
-		network = simu
+	def set_network(net: Network): Unit = {
+		network = net
 	}
 
 	def is_active() = active
