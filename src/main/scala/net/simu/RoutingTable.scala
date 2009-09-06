@@ -1,7 +1,7 @@
 
 package net.simu
 
-class RoutingTable(initNode: Node, initK: Int) {
+class RoutingTable(initNode: KademliaNode, initK: Int) {
 	private val node = initNode
 	val k = initK
 	val table = new Array[KBucket](160)
@@ -10,7 +10,7 @@ class RoutingTable(initNode: Node, initK: Int) {
 	}
 
 	def get_bucket_index(node: Node): Int =  {
-		val distance = this.node ^ node
+		val distance = this.node.id ^ node.id
 		val len = distance.bitLength
 		if (len <= 1) {
 			return 0
@@ -27,7 +27,7 @@ class RoutingTable(initNode: Node, initK: Int) {
 			bucket.remove(node)
 			bucket.append(node)
 		} else if (bucket.isFull) {
-			if (node.ping(bucket.front)) {
+			if (this.node.ping(bucket.front)) {
 				// Move front node to end
 				val front = bucket.front
 				bucket.remove_front()

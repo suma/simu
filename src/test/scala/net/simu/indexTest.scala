@@ -5,9 +5,8 @@ import org.junit.Test
 
 class indexTest {
 
-	val node = new Node(0)
 	val ttl = 0
-	val index = new Index(node, ttl)
+	val index = new Index(ttl)
 
 	@Test
 	def setGetTest = {

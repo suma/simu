@@ -27,19 +27,8 @@ class nodeTest {
 
 	@Test
 	def idTest = {
-		assertEquals(BigInt(1), node1.get_id)
-		assertEquals(BigInt(2), node2.get_id)
-	}
-
-	@Test
-	def activeTest = {
-		assertEquals(node1.is_active, true)
-	}
-
-	@Test
-	def activateTest = {
-		node1.activate(false)
-		assertEquals(node1.is_active, false)
+		assertEquals(BigInt(1), node1.id)
+		assertEquals(BigInt(2), node2.id)
 	}
 
 	@Test

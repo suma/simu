@@ -8,7 +8,7 @@ import org.junit.Assert._
 
 class routingTableTest {
 
-	val node = new Node(0)
+	val node = new KademliaNode(0)
 	val k = 20
 	val rt = new RoutingTable(node, k)
 
@@ -22,8 +22,8 @@ class routingTableTest {
 
 	@Test
 	def indexTest = {
-		val a = new Node(1)
-		val b = new Node(2)
+		val a = new KademliaNode(1)
+		val b = new KademliaNode(2)
 		assertEquals(0, rt.get_bucket_index(a))
 		assertEquals(1, rt.get_bucket_index(b))
 	}
