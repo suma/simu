@@ -45,11 +45,12 @@ class KademliaNode(id: BigInt) extends Node(id) { //extends Ordered[KademliaNode
 	}
 
 	// K: FIND_VALUE
-	def find_value(node: Node, key: BigInt) = {
+	def find_value(node: Node, key: BigInt): Option[Value] = {
 		val target = network.get_node(node)
 		try {
+			return target.msg_find_value(key)
 		} catch {
-			case _ => routing.remove_contact(target)
+			case _ => routing.remove_contact(target); return None
 		}
 	}
 
