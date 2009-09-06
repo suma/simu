@@ -1,7 +1,6 @@
 package net.simu
 
-
-class Simu(count: int, rand: Random) {
+class Simu(count: Int, rand: scala.util.Random) {
 	private val network = new Network(count, rand)
 
 	def next_step(): Unit = {

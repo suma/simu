@@ -4,7 +4,7 @@ package net.simu
 import scala.collection.mutable.HashMap
 import java.util.Date
 
-class Index(initNode: Node, initTtl: long) {
+class Index(initNode: Node, initTtl: Long) {
 	private val node = initNode
 	private val ttl = initTtl
 	private val dic = new HashMap[BigInt, (Value, Date)]

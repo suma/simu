@@ -3,15 +3,15 @@ package net.simu
 import java.util.Date
 import scala.collection.mutable.ListBuffer
 
-class KBucket(initK: int) {
+class KBucket(initK: Int) {
 	val k = initK
 	val bucket = new ListBuffer[Node]
 
-	def isFull: boolean = k == bucket.length
+	def isFull: Boolean = k == bucket.length
 
-	def isEmpty: boolean = bucket.length == 0
-	def length: int = bucket.length
-	def has_node(node: Node): boolean = bucket.exists(i => node.equals(i))
+	def isEmpty: Boolean = bucket.length == 0
+	def length: Int = bucket.length
+	def has_node(node: Node): Boolean = bucket.exists(i => node.equals(i))
 
 	def append(node: Node): Unit= {
 		if (isFull) {

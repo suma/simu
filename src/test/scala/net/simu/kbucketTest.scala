@@ -14,7 +14,7 @@ import org.junit.Test
 
 class kbucketTest {
 
-  val k: int = 20
+  val k: Int = 20
   val bucket = new KBucket(k)
 
   @Before

@@ -1,7 +1,7 @@
 
 package net.simu
 
-class RoutingTable(initNode: Node, initK: int) {
+class RoutingTable(initNode: Node, initK: Int) {
 	private val node = initNode
 	val k = initK
 	val table = new Array[KBucket](160)
@@ -9,7 +9,7 @@ class RoutingTable(initNode: Node, initK: int) {
 		table.update(i, new KBucket(k))
 	}
 
-	def get_bucket_index(node: Node): int =  {
+	def get_bucket_index(node: Node): Int =  {
 		val distance = this.node ^ node
 		val len = distance.bitLength
 		if (len <= 1) {

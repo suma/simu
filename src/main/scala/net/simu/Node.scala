@@ -19,14 +19,25 @@ class Node(i: BigInt) { //extends Ordered[Node] {
 		active = flg
 	}
 
+	// K: PING
 	def ping(node: Node): Boolean = {
 		return network.get_node(node).is_active
 	}
 
-	def push_message(message: Message, id_sender: int): Unit = {
+	// K: STORE
+	def push_message(message: Message, id_sender: Int): Unit = {
 	}
 
-	def compare(node: Node): int = {
+	// K: FIND_NODE
+	def find_node(key: BigInt) = {
+	}
+
+	// K: FIND_VALUE
+	def find_value(key: BigInt) = {
+		
+	}
+
+	def compare(node: Node): Int = {
 		if (id < node.id) {
 			return -1
 		} else if (id > node.id) {
