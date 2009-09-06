@@ -15,5 +15,13 @@ class Network(count: int, rand: Random) {
 		scala.Array.copy(nodes, 0, nodes_old, 0, count_node)
 	}
 
-	def get_node(index: int) =  nodes_old(index)
+	def get_node(index: int): Node = nodes_old(index)
+
+	def get_node(node: Node): Node = {
+		val index = nodes_old.findIndexOf(i => node.equals(i))
+		if (index == -1) {
+			return null;
+		}
+		return nodes_old(index)
+	}
 }

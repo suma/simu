@@ -14,9 +14,13 @@ class Node(i: BigInt) { //extends Ordered[Node] {
 		network = net
 	}
 
-	def is_active() = active
+	def is_active(): Boolean = active
 	def activate(flg: Boolean): Unit = {
 		active = flg
+	}
+
+	def ping(node: Node): Boolean = {
+		return network.get_node(node).is_active
 	}
 
 	def push_message(message: Message, id_sender: int): Unit = {
