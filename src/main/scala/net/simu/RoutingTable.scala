@@ -23,15 +23,19 @@ class RoutingTable(initNode: Node, initK: int) {
 		val index = get_bucket_index(node)
 		val bucket = table(index)
 		if (bucket.has_node(node)) {
+			// Move to end
 			bucket.remove(node)
 			bucket.append(node)
 		} else if (bucket.isFull) {
-			 // PING
-			 // if (node.send_ping(bucket.front())) {
-			 if (true) {
-				 bucket.removeFront()
-			 }
-			 bucket.append(node)
+			if (node.ping(bucket.front)) {
+				// Move front node to end
+				val front = bucket.front
+				bucket.remove_front()
+				bucket.append(front)
+			} else {
+				bucket.remove_front()
+				bucket.append(node)
+			}
 		 } else {
 			 bucket.append(node)
 		 }

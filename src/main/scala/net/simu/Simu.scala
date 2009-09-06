@@ -6,9 +6,6 @@ class Simu(count: int, rand: Random) {
 
 	def next_step(): Unit = {
 		network.next_step()
-	
-
-
 	}
 
 }

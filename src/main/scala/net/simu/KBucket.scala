@@ -32,7 +32,7 @@ class KBucket(initK: int) {
 			bucket.remove(index)
 	}
 
-	def removeFront(): Unit = {
+	def remove_front(): Unit = {
 		if (!isEmpty) {
 			bucket.remove(0)
 		}
