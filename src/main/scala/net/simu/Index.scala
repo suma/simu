@@ -4,6 +4,9 @@ package net.simu
 import scala.collection.mutable.HashMap
 import java.util.Date
 
+class KeyNotFoundException extends Exception {
+}
+
 class Index(initTtl: Long) {
 	private val ttl = initTtl
 	private val dic = new HashMap[BigInt, (Value, Date)]
@@ -14,7 +17,7 @@ class Index(initTtl: Long) {
 	def get(key: BigInt): Value = {
 		dic.get(key) match {
 			case Some((value, _)) => value
-			case None => throw new Exception("Key Not Found")
+			case None => throw new KeyNotFoundException;
 		}
 	}
 

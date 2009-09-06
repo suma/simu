@@ -23,7 +23,7 @@ class indexTest {
 		try {
 			index.get(BigInt(1))
 		} catch {
-			case e => throwed = true
+			case _: KeyNotFoundException => throwed = true
 		}
 		assertTrue(throwed)
 	}

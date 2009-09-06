@@ -26,10 +26,10 @@ class KademliaNode(id: BigInt) extends Node(id) { //extends Ordered[KademliaNode
 	}
 
 	// K: STORE
-	def store(node: Node, message: Message): Unit = {
+	def store(node: Node, key: BigInt, message: Message): Unit = {
 		val target = network.get_node(node)
 		try {
-			target.msg_store(message)
+			target.msg_store(key, message)
 		} catch {
 			case _ => routing.remove_contact(target)
 		}
@@ -53,16 +53,22 @@ class KademliaNode(id: BigInt) extends Node(id) { //extends Ordered[KademliaNode
 		}
 	}
 
-	private def msg_store(msg: Message): Unit = {
+	private def msg_store(key: BigInt, msg: Message): Unit = {
 		if (!is_active) {
 			throw new Exception("KademliaNode is intactive")
 		}
+		index.set(key, msg.value)
 	}
 
 	private def msg_find_node(key: BigInt) = {
 	}
 
-	private def msg_find_value(key: BigInt) = {
+	private def msg_find_value(key: BigInt): Option[Value] = {
+		try {
+			return Some(index.get(key))
+		} catch {
+			case _: KeyNotFoundException => return None
+		}
 	}
 
 
